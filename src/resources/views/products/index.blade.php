@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 
 </head>
+
+<!-- http://localhost/productsでブラウザ表示する -->
+
 <body>
   <header class="header">
     <div class="header__inner">
@@ -42,9 +45,11 @@
         </form>
       </div>
       <div>
-
+        <img src="" alt="">
       </div>
     </div>
+
+    
   </main>
 </body>
 </html>
