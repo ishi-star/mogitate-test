@@ -1,30 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mogitate</title>
+
+  @extends('layouts.app')
+
+  @section('css')
   <link rel="stylesheet" href="{{ asset('css/create.css') }}">
+  @endsection
 
-</head>
-
-<!-- http://localhost/products/createでブラウザ表示する -->
-
-<body>
-  <header class="header">
-    <div class="header__inner">
-      <a class="header__logo" href="index.php">
-        mogitate
-      </a>
-    </div>
-  </header>
+  @section('content')
   <main>
   <div class="create-form__content">
       <div class="create-form__heading">
         <h2>商品登録</h2>
       </div>
       <form class="form">
+      @csrf
         <div class="form__group">
           <div class="form__group-title">
             <span class="form__label--item">商品名</span>
@@ -35,7 +23,7 @@
             <span class="form__label--item-price">値段</span>
             <span class="form__label--required">必須</span>
           </div>
-          <input type="text" name="name" placeholder="値段を入力" />
+          <input type="text" name="price" placeholder="値段を入力" />
 
           <div>
             <span class="form__label--item-price">商品画像</span>
@@ -65,5 +53,5 @@
       </form>
     </div>
   </main>
-</body>
-</html>
+
+@endsection

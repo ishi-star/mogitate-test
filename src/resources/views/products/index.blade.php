@@ -5,8 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mogitate</title>
-  <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
 
+  <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 </head>
 
 <!-- http://localhost/productsでブラウザ表示する -->
@@ -20,18 +21,21 @@
     </div>
   </header>
   <main>
-    
     <div class="product__item">
       <h1>商品一覧</h1>
-      <form class="product__item-register" action="" method="get">
+
         <div class="product__item-add">
-          <button class="product__item-add-submit" type="submit">＋商品を追加</button>
+          <!-- <a href="{{ route('products.register') }}" class="product__item-add-submit">＋商品を追加</a> -->
+          <a href="{{ route('products.register') }}">＋商品を追加</a>
+
         </div>
       </form>
     </div>
+    <div class="product">
     <div class="container">
       <div>
         <form method="GET" action="{{ url('/') }}">
+        @csrf
           <input type="text" name="search" placeholder="商品名で検索" value="{{ request('search') }}">
           <button type="submit">検索</button>
           <div class=price_text>
@@ -48,17 +52,45 @@
         <img src="" alt="">
       </div>
     </div>
+    <style>
+  th {
+    background-color: #289ADC;
+    color: white;
+    padding: 5px 40px;
+  }
 
+  tr:nth-child(odd) td {
+    background-color: #FFFFFF;
+  }
+
+  td {
+    padding: 25px 40px;
+    background-color: #EEEEEE;
+    text-align: center;
+  }
+
+  svg.w-5.h-5 {
+    /*paginateメソッドの矢印の大きさ調整のために追加*/
+    width: 30px;
+    height: 30px;
+  }
+</style>
     <div class="products">
     @foreach ($products as $product)
         <div class="product-card">
-            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" width="150">
-            <p>{{ $product->name }}</p>
-            <p>{{ $product->price }}円</p>
+          <a href="{{ route('products.show', $product->id) }}">
+            <img class="products__card-item" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" >
+          </a>
+          <p>{{ $product->name }}</p>
+          <p>{{ $product->price }}円</p>
             <!-- <p>{{ $product->description }}</p> -->
         </div>
     @endforeach
-</div>
+      <div class="pagination">
+      {{ $products->links() }}
+      </div>
+    </div>
+    </div>
   </main>
 </body>
 </html>

@@ -39,3 +39,17 @@
 .container{
   display: flex;
 }
+
+.products{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1320px;
+}
+
+.products__card-item{
+  width: 400px;
+}
+
+.product{
+  display: flex;
+}
