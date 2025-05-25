@@ -22,7 +22,7 @@
   <main>
     
     <div class="product__item">
-      <h2>商品一覧</h2>
+      <h1>商品一覧</h1>
       <form class="product__item-register" action="" method="get">
         <div class="product__item-add">
           <button class="product__item-add-submit" type="submit">＋商品を追加</button>
@@ -49,7 +49,16 @@
       </div>
     </div>
 
-    
+    <ul>
+        @foreach ($products as $product)
+            <li>
+                <h2>{{ $product->name }}</h2>
+                <p>価格: ¥{{ number_format($product->price) }}</p>
+                <!-- <p>説明: {{ $product->description }}</p> -->
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" width="150">
+            </li>
+        @endforeach
+    </ul>
   </main>
 </body>
 </html>
