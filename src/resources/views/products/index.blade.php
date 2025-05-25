@@ -49,16 +49,16 @@
       </div>
     </div>
 
-    <ul>
-        @foreach ($products as $product)
-            <li>
-                <h2>{{ $product->name }}</h2>
-                <p>価格: ¥{{ number_format($product->price) }}</p>
-                <!-- <p>説明: {{ $product->description }}</p> -->
-                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" width="150">
-            </li>
-        @endforeach
-    </ul>
+    <div class="products">
+    @foreach ($products as $product)
+        <div class="product-card">
+            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" width="150">
+            <p>{{ $product->name }}</p>
+            <p>{{ $product->price }}円</p>
+            <!-- <p>{{ $product->description }}</p> -->
+        </div>
+    @endforeach
+</div>
   </main>
 </body>
 </html>
