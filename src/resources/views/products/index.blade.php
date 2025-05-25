@@ -8,21 +8,17 @@
   <main>
     <div class="product__item">
       <h1>商品一覧</h1>
-
-        <div class="product__item-add">
-          <!-- <a href="{{ route('products.register') }}" class="product__item-add-submit">＋商品を追加</a> -->
-          <a href="{{ route('products.register') }}">＋商品を追加</a>
-
-        </div>
-      </form>
+      <div class="product__item-add">
+        <a class="product__item-add-submit" href="{{ route('products.register') }}">＋商品を追加</a>
+      </div>
     </div>
     <div class="product">
     <div class="container">
       <div>
         <form method="GET" action="{{ url('/') }}">
         @csrf
-          <input type="text" name="search" placeholder="商品名で検索" value="{{ request('search') }}">
-          <button type="submit">検索</button>
+          <input class="form__search-get" type="text" name="search" placeholder="商品名で検索" value="{{ request('search') }}">
+          <button class="form__search" type="submit">検索</button>
           <div class=price_text>
             価格順で表示
           </div>

@@ -1,19 +1,4 @@
-.header {
-  background: #f7e6e6;
-}
 
-.header__inner {
-  margin: 0 auto;
-  padding: 10px 10px;
-  max-width: 1230px;
-}
-
-.header__logo {
-  color: #679015;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 20px;
-}
 
 .product__item{
   display: flex;
@@ -34,6 +19,16 @@
   background: #df7f1f;
   color: #000000;
   cursor: pointer;
+}
+
+.form__search-get{
+  padding: 15px 20px;
+  border-radius: 5px;
+}
+
+.form__search{
+  padding: 5px 10px;
+  background-color: #df7f1f;
 }
 
 .container{
